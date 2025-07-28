@@ -14,7 +14,7 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply font-urbanist;
+    @apply font-urbanist overflow-x-hidden;
   }
   h2 {
     @apply cursor-default text-slate-900;

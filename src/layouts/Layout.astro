@@ -10,6 +10,7 @@ import Navbar from "@components/Navbar/Navbar.astro";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <meta name="generator" content={Astro.generator} />
     <title>Envira Energies</title>
   </head>
@@ -53,6 +54,14 @@ import Navbar from "@components/Navbar/Navbar.astro";
         if (homeElement) {
           observer.observe(homeElement);
         }
+      });
+    </script>
+    <script>
+      import AOS from "aos";
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
       });
     </script>
   </body>

@@ -1,4 +1,6 @@
 ---
+import InstagramIcon from "@assets/Icons/Instagram.svg";
+import LinkedinIcon from "@assets/Icons/Linkedin.svg";
 import Logo from "@assets/logo_small.svg";
 ---
 
@@ -43,12 +45,27 @@ import Logo from "@assets/logo_small.svg";
 
   <div class="px-16">
     <div
-      class="flex w-full items-center justify-between border-t border-green-400 py-5"
+      class="flex w-full items-center justify-between border-t border-green-400 px-4 py-5"
     >
       <div class="text-center text-sm text-white">
         &copy; 2025 Envira Energies. All rights reserved.
       </div>
-      <div class="text-center text-sm text-white">Social Icons</div>
+      <div class="flex items-center justify-center gap-2">
+        <a
+          class="rounded-full bg-teal-600 p-2 text-sm text-white transition-colors duration-200 hover:bg-teal-500"
+          href=""
+          name="Instagram Profile"
+        >
+          <InstagramIcon />
+        </a>
+        <a
+          class="rounded-full bg-teal-600 p-2 text-sm text-white transition-colors duration-200 hover:bg-teal-500"
+          href=""
+          name="Linkedin Profile"
+        >
+          <LinkedinIcon />
+        </a>
+      </div>
     </div>
   </div>
 </footer>

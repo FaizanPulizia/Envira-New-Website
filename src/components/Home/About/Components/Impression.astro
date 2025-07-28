@@ -8,19 +8,65 @@ import Image_2 from "@assets/Home/Impression/2.webp";
 <div
   class="grid h-[200svh] grid-cols-2 grid-rows-2 place-items-center gap-20 bg-gradient-to-b from-sky-300 to-green-50 px-16 py-20"
 >
-  <p class="text-left text-3xl font-medium text-pretty italic">
+  <p
+    data-aos="fade-up-right"
+    class="text-left text-3xl font-medium text-pretty italic"
+  >
     We aim to accelerate the change to a diversified, environmental conscious
     energy system.
   </p>
   <div class="size-full overflow-hidden rounded-2xl">
-    <Image src={Image_1} alt="" class="size-full object-cover" loading="lazy" />
+    <Image
+      data-aos="zoom-out-no-fade"
+      data-aos-duration="1500"
+      data-aos-easing="ease-out"
+      src={Image_1}
+      alt=""
+      class="size-full object-cover"
+      loading="lazy"
+    />
   </div>
   <div class="size-full overflow-hidden rounded-2xl">
-    <Image src={Image_2} alt="" class="size-full object-cover" loading="lazy" />
+    <Image
+      data-aos="zoom-out-no-fade"
+      data-aos-duration="1500"
+      data-aos-easing="ease-out"
+      src={Image_2}
+      alt=""
+      class="size-full object-cover"
+      loading="lazy"
+    />
   </div>
 
-  <p class="text-left text-3xl font-medium text-pretty italic">
+  <p
+    data-aos="fade-up-left"
+    class="text-left text-3xl font-medium text-pretty italic"
+  >
     Our mission is simple: to power the world sustainably. We strive to make
     renewable energy accessible, reliable, and affordable for all.
   </p>
 </div>
+
+<style>
+  @keyframes zoom-out-no-fade {
+    from {
+      transform: scale(1.2);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  [data-aos="zoom-out-no-fade"] {
+    transform: scale(1.2);
+    opacity: 1 !important;
+  }
+
+  [data-aos="zoom-out-no-fade"].aos-animate {
+    animation-name: zoom-out-no-fade;
+    animation-fill-mode: forwards;
+    animation-timing-function: var(--aos-easing, ease-out);
+    animation-duration: var(--aos-duration, 1500ms);
+    opacity: 1 !important;
+  }
+</style>
