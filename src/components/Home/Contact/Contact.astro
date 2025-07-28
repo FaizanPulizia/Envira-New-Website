@@ -2,24 +2,27 @@
 import ContactForm from "./Components/ContactForm.astro";
 ---
 
-<section id="contact" class="space-y-20 bg-green-50 px-16 py-20">
+<section
+  id="contact"
+  class="space-y-10 bg-green-50 px-8 py-10 md:space-y-20 md:px-16 md:py-20"
+>
   <h2
     data-aos="zoom-out"
-    class="text-center text-5xl font-semibold tracking-wider capitalize"
+    class="text-center text-3xl font-semibold tracking-wider text-balance capitalize sm:text-4xl md:text-5xl"
   >
     Book A Free Consultation Today
   </h2>
 
-  <div class="grid grid-cols-2 gap-8">
+  <div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-4">
     <!-- Map Column -->
     <div
       data-aos="zoom-in-right"
       data-aos-delay="250"
-      class="size-full overflow-hidden rounded-2xl border border-green-500 shadow-2xl"
+      class="size-full overflow-hidden rounded-2xl border border-green-500 bg-black shadow-2xl max-md:order-2"
     >
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15084.09634636602!2d72.85126782531736!3d19.062678571920536!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c8e63255a32f%3A0xb36949f4649e6f15!2sThe%20Capital!5e0!3m2!1sen!2sin!4v1753638721203!5m2!1sen!2sin"
-        class="h-full min-h-[400px] w-full bg-black object-cover"
+        class="h-100 w-full object-cover sm:h-[80svh] md:h-full"
         loading="lazy"
         allowfullscreen=""
         referrerpolicy="no-referrer-when-downgrade"
@@ -30,9 +33,11 @@ import ContactForm from "./Components/ContactForm.astro";
     <div
       data-aos="zoom-in-left"
       data-aos-delay="250"
-      class="size-full rounded-2xl border border-green-500 p-8 shadow-2xl"
+      class="size-full rounded-2xl border border-green-500 p-4 shadow-2xl max-md:order-1 md:p-8"
     >
-      <h3 class="text-3xl font-bold tracking-wider text-slate-800">
+      <h3
+        class="text-center text-xl font-bold tracking-wider text-slate-800 sm:text-2xl md:text-left md:text-3xl"
+      >
         Contact Us
       </h3>
       <ContactForm />

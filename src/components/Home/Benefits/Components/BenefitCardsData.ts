@@ -1,7 +1,7 @@
-import EnergySecurity from "@assets/Home/Benefits/EnergySecurity.jpg";
-import EnvironmentalImpact from "@assets/Home/Benefits/EnvironmentalImpact.jpg";
-import FinancialBenefits from "@assets/Home/Benefits/FinancialBenefits.jpg";
-import RisingElectricityBill from "@assets/Home/Benefits/RisingElectricityBill.jpg";
+import EnergySecurity from "@assets/Home/Benefits/EnergySecurity.webp";
+import EnvironmentalImpact from "@assets/Home/Benefits/EnvironmentalImpact.webp";
+import FinancialBenefits from "@assets/Home/Benefits/FinancialBenefits.webp";
+import RisingElectricityBill from "@assets/Home/Benefits/RisingElectricityBill.webp";
 
 export type BenefitCardData = {
   title: string;

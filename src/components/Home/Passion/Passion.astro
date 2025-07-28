@@ -5,29 +5,31 @@ import { PassionCards } from "./Components/PassionCardData.ts";
 
 <section
   id="passion"
-  class="flex flex-col items-center justify-center gap-16 bg-green-50 px-16 py-20"
+  class="flex flex-col items-center justify-center gap-8 bg-green-50 px-8 py-10 md:gap-16 md:px-16 md:py-20"
 >
-  <div class="flex flex-col items-center justify-center gap-8">
+  <div class="flex flex-col items-center justify-center gap-4 md:gap-8">
     <h2
       data-aos="fade-up"
-      class="text-5xl font-semibold tracking-wider capitalize"
+      class="text-center text-3xl font-semibold tracking-wider text-balance capitalize md:text-left md:text-5xl"
     >
       Our Passion for Exceptional Service
     </h2>
     <p
       data-aos="slide-left"
       data-aos-anchor-placement="center-center"
-      class="max-w-2xl text-center text-lg font-medium text-pretty"
+      class="max-w-2xl text-left text-sm font-medium text-pretty md:text-center md:text-lg"
     >
       Our approaches are based on a deep understanding of the solar energy
       market, we are committed tp delivering innovative renewable energy
       solutions.
     </p>
   </div>
-  <div class="flex w-full flex-row items-center justify-center gap-8">
+  <div
+    class="flex w-full flex-col items-center justify-center gap-x-8 gap-y-4 md:flex-row"
+  >
     {
       PassionCards.map((card) => (
-        <div class="w-1/2">
+        <div class="w-full md:w-1/2">
           <PassionCard {...card} />
         </div>
       ))

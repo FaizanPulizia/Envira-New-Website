@@ -6,16 +6,18 @@ import Image_2 from "@assets/Home/Impression/2.webp";
 ---
 
 <div
-  class="grid h-[200svh] grid-cols-2 grid-rows-2 place-items-center gap-20 bg-gradient-to-b from-sky-300 to-green-50 px-16 py-20"
+  class="flex flex-col items-center justify-start gap-10 bg-gradient-to-b from-sky-300 to-green-50 px-8 py-10 md:grid md:h-[200svh] md:grid-cols-2 md:grid-rows-2 md:place-items-center md:gap-20 md:px-16 md:py-20"
 >
   <p
     data-aos="fade-up-right"
-    class="text-left text-3xl font-medium text-pretty italic"
+    class="text-left text-xl font-medium text-pretty italic max-md:order-2 md:text-3xl"
   >
     We aim to accelerate the change to a diversified, environmental conscious
     energy system.
   </p>
-  <div class="size-full overflow-hidden rounded-2xl">
+  <div
+    class="aspect-square size-full overflow-hidden rounded-2xl max-md:order-1 sm:aspect-video md:aspect-auto"
+  >
     <Image
       data-aos="zoom-out-no-fade"
       data-aos-duration="1500"
@@ -26,7 +28,9 @@ import Image_2 from "@assets/Home/Impression/2.webp";
       loading="lazy"
     />
   </div>
-  <div class="size-full overflow-hidden rounded-2xl">
+  <div
+    class="aspect-square size-full overflow-hidden rounded-2xl max-md:order-3 sm:aspect-video md:aspect-auto"
+  >
     <Image
       data-aos="zoom-out-no-fade"
       data-aos-duration="1500"
@@ -40,7 +44,7 @@ import Image_2 from "@assets/Home/Impression/2.webp";
 
   <p
     data-aos="fade-up-left"
-    class="text-left text-3xl font-medium text-pretty italic"
+    class="text-left text-xl font-medium text-pretty italic max-md:order-4 md:text-3xl"
   >
     Our mission is simple: to power the world sustainably. We strive to make
     renewable energy accessible, reliable, and affordable for all.

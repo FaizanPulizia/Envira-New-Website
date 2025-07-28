@@ -1,71 +1,11 @@
 ---
-import InstagramIcon from "@assets/Icons/Instagram.svg";
-import LinkedinIcon from "@assets/Icons/Linkedin.svg";
-import Logo from "@assets/logo_small.svg";
+import BottomSection from "./Components/BottomSection.astro";
+import TopSection from "./Components/TopSection.astro";
 ---
 
-<footer class="bg-gradient-to-b from-green-600 to-teal-600">
-  <div
-    class="flex w-full flex-col items-start justify-between gap-10 px-16 py-20 md:flex-row"
-  >
-    <!-- Company Info -->
-    <div class="w-min space-y-4 px-4">
-      <h3
-        class="flex items-center justify-start text-6xl font-extrabold tracking-wide text-nowrap text-white"
-      >
-        <Logo class="size-16" />
-        Envira Energies
-      </h3>
-      <p class="ml-8 text-xl text-white opacity-95">
-        Empowering India with reliable, cost-effective solar energy solutions.
-      </p>
-    </div>
-
-    <!-- Contact -->
-    <div class="w-min space-y-4 px-4">
-      <h4 class="text-3xl font-semibold text-white">Contact Us</h4>
-      <div class="space-y-2 text-white">
-        <a class="group block" href="mailto:contact@enviraenergies.com">
-          Email: <br />
-          <span class="group-hover:underline">
-            contact@enviraenergies.com
-          </span>
-        </a>
-        <a class="group block" href="tel:+919136811775">
-          Phone: <br />
-          <span class="group-hover:underline"> +91 9136811775 </span>
-        </a>
-
-        <span class="block cursor-default">
-          Location: <br />The Capital, G-Block, BKC, <br />Mumbai, 400103
-        </span>
-      </div>
-    </div>
-  </div>
-
-  <div class="px-16">
-    <div
-      class="flex w-full items-center justify-between border-t border-green-400 px-4 py-5"
-    >
-      <div class="text-center text-sm text-white">
-        &copy; 2025 Envira Energies. All rights reserved.
-      </div>
-      <div class="flex items-center justify-center gap-2">
-        <a
-          class="rounded-full bg-teal-600 p-2 text-sm text-white transition-colors duration-200 hover:bg-teal-500"
-          href=""
-          name="Instagram Profile"
-        >
-          <InstagramIcon />
-        </a>
-        <a
-          class="rounded-full bg-teal-600 p-2 text-sm text-white transition-colors duration-200 hover:bg-teal-500"
-          href=""
-          name="Linkedin Profile"
-        >
-          <LinkedinIcon />
-        </a>
-      </div>
-    </div>
-  </div>
+<footer
+  class="flex flex-col items-center justify-center divide-y divide-green-400 bg-gradient-to-b from-green-600 to-teal-600 px-8 pt-10 pb-4 md:px-16 md:pt-20"
+>
+  <TopSection />
+  <BottomSection />
 </footer>

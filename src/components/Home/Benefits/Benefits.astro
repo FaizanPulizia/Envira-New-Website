@@ -3,26 +3,26 @@ import { BenefitCardsData } from "./Components/BenefitCardsData.ts";
 import BenefitsCard from "./Components/BenefitsCard.astro";
 ---
 
-<section id="benefits" class="px-16 pt-10 pb-20">
-  <div class="space-y-20 rounded-2xl bg-green-50 p-16">
-    <div class="flex flex-col items-center justify-center gap-8">
+<section id="benefits" class="px-8 pt-10 pb-5 md:px-16 md:pt-20 md:pb-10">
+  <div class="space-y-10 rounded-2xl bg-green-50 p-8 md:space-y-20 md:p-16">
+    <div class="flex flex-col items-center justify-center sm:gap-4 md:gap-8">
       <h2
         data-aos="fade-down"
-        class="text-5xl font-semibold tracking-wider capitalize"
+        class="text-center text-3xl font-semibold tracking-wider text-balance capitalize md:text-left md:text-5xl"
       >
         Why choose Solar
       </h2>
       <p
         data-aos="fade-up"
         data-aos-delay="100"
-        class="max-w-2xl text-center text-lg font-medium text-pretty"
+        class="hidden max-w-2xl text-center text-lg font-medium text-pretty sm:block"
       >
         We believe in the power of solar energy to transform lives and
         communities.
       </p>
     </div>
     <div
-      class="flex w-full flex-row items-center justify-center gap-8 rounded-2xl"
+      class="grid w-full grid-cols-1 place-items-stretch gap-6 sm:grid-cols-2 md:grid-cols-4 md:gap-8"
     >
       {BenefitCardsData.map((card) => <BenefitsCard {...card} />)}
     </div>

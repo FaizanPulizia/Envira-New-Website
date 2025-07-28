@@ -28,7 +28,18 @@ import BG_Image from "@assets/Home/HeroBackground.jpg";
 
   const videoContainer = document.getElementById("hero-video-container")!;
 
-  const clipPathCornerNodes: ScreenSpaceCoordinate[] = [
+  const portraitClipPathNodes: ScreenSpaceCoordinate[] = [
+    [0, 1], // Bottom Left
+    [0, 0.1],
+    [0.25, 0.1],
+    [0.3, 0],
+    [1, 0],
+    [1, 0.9],
+    [0.7, 0.9],
+    [0.65, 1],
+  ];
+
+  const landscapeClipPathNodes: ScreenSpaceCoordinate[] = [
     [0, 1], // Bottom Left
     [0, 0.1],
     [0.25, 0.1],
@@ -41,13 +52,28 @@ import BG_Image from "@assets/Home/HeroBackground.jpg";
     [0.65, 1],
   ];
 
+  function isPortrait() {
+    // return window.innerHeight > window.innerWidth;
+    return window.matchMedia("(orientation: portrait)").matches;
+  }
+  function isMobileDevice() {
+    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  }
+
   function drawVideoContainerClip() {
+    if (isMobileDevice() && !isPortrait()) {
+      videoContainer.style.clipPath = "none";
+      return;
+    }
     const width = videoContainer.offsetWidth;
     const height = videoContainer.offsetHeight;
+    const coordinates = isPortrait()
+      ? portraitClipPathNodes
+      : landscapeClipPathNodes;
     const path = getClipPath({
       containerWidth: width,
       containerHeight: height,
-      coordinates: clipPathCornerNodes,
+      coordinates,
       arcRadius: 20,
     });
     videoContainer.style.clipPath = `path('${path}')`;
@@ -56,10 +82,11 @@ import BG_Image from "@assets/Home/HeroBackground.jpg";
   drawVideoContainerClip();
 
   let timeout: any;
-  window.addEventListener("resize", () => {
+  const debounceRecalculateClipPath = () => {
     clearTimeout(timeout);
-    timeout = setTimeout(() => {
-      drawVideoContainerClip();
-    }, 100);
-  });
+    timeout = setTimeout(drawVideoContainerClip, 100);
+  };
+
+  window.addEventListener("resize", debounceRecalculateClipPath);
+  window.addEventListener("orientationchange", debounceRecalculateClipPath);
 </script>
