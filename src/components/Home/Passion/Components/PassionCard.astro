@@ -7,25 +7,25 @@ const { title, description, background, image, card } =
   Astro.props as PassionCardData;
 ---
 
-<div class="h-96 w-full">
+<div class="h-108 w-full">
   <div class="grid size-full grid-cols-5 grid-rows-5 gap-4 p-4">
     <div
       class="passion-image-container col-span-4 col-start-2 row-span-3 row-start-1 rounded-2xl"
     >
-      <div class="relative isolate size-full bg-black">
+      <div class="relative isolate size-full">
         <Image
           src={background}
           alt="Background"
           class="absolute inset-0 -z-10 object-cover"
           loading="lazy"
         />
-        <!--
+
         <Image
           src={image}
           alt={title}
           class="size-full object-cover"
           loading="lazy"
-        /> -->
+        />
       </div>
     </div>
     <div
