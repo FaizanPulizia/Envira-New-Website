@@ -1,0 +1,48 @@
+---
+import InputField from "./InputField.astro";
+import TextArea from "./TextArea.astro";
+---
+
+<form
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  name="Consultation Form"
+  class="space-y-8 py-4"
+>
+  <!-- Netlify Validation Form Fields  -->
+  <p class="hidden">
+    <label>
+      Don't fill this out: <input name="bot-field" />
+    </label>
+  </p>
+
+  <!-- Full Name -->
+  <InputField id="full-name" label="Full Name" type="text" required={true} />
+
+  <!-- Email -->
+  <InputField id="email" label="Email" type="email" required={true} />
+
+  <!-- Contact Number -->
+  <InputField id="contact-number" label="Contact Number" type="tel" />
+
+  <!-- Address -->
+  <TextArea id="address" label="Address" rows={3} required={true} />
+
+  <!-- Additional Comments -->
+  <TextArea
+    id="additional-information"
+    label="Any Additional Information"
+    rows={5}
+  />
+
+  <!-- Submit Button -->
+  <div>
+    <button
+      type="submit"
+      class="w-full rounded-2xl bg-green-500 px-4 py-2 text-lg font-semibold text-white transition-all hover:bg-green-600 focus:ring-2 focus:ring-green-600 focus:ring-offset-1 focus:outline-none"
+    >
+      Submit
+    </button>
+  </div>
+</form>

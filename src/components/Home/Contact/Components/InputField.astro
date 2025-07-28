@@ -1,0 +1,30 @@
+---
+const {
+  id,
+  type = "text",
+  label,
+  required = false,
+} = Astro.props as {
+  id: string;
+  label: string;
+  type?: "text" | "email" | "tel";
+  required?: boolean;
+};
+---
+
+<div class="relative">
+  <input
+    id={id}
+    type={type}
+    required={required}
+    name={id}
+    placeholder={label}
+    class="peer w-full rounded-2xl border border-gray-300 bg-white px-4 py-2 placeholder:text-transparent invalid:ring-red-500 user-invalid:border-red-500 user-invalid:ring-1 focus:border-green-500 focus:ring-1 focus:ring-green-500 focus:outline-none"
+  />
+  <label
+    for={id}
+    class="absolute -top-5 left-2 text-sm font-semibold text-gray-700 transition-all duration-200 ease-in-out peer-placeholder-shown:top-2 peer-placeholder-shown:left-4 peer-placeholder-shown:text-base peer-placeholder-shown:font-normal peer-placeholder-shown:text-slate-400 peer-focus:-top-5 peer-focus:left-2 peer-focus:text-sm peer-focus:font-semibold peer-focus:text-gray-700"
+  >
+    {label}
+  </label>
+</div>

@@ -1,0 +1,23 @@
+---
+import { BenefitCardsData } from "./Components/BenefitCardsData.ts";
+import BenefitsCard from "./Components/BenefitsCard.astro";
+---
+
+<section id="benefits" class="px-16 pt-10 pb-20">
+  <div class="space-y-20 rounded-2xl bg-green-50 p-16">
+    <div class="flex flex-col items-center justify-center gap-8">
+      <h2 class="text-5xl font-semibold tracking-wider capitalize">
+        Why choose Solar
+      </h2>
+      <p class="max-w-2xl text-center text-lg font-medium text-pretty">
+        We believe in the power of solar energy to transform lives and
+        communities.
+      </p>
+    </div>
+    <div
+      class="flex w-full flex-row items-center justify-center gap-8 rounded-2xl"
+    >
+      {BenefitCardsData.map((card) => <BenefitsCard {...card} />)}
+    </div>
+  </div>
+</section>

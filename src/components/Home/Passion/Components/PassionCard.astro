@@ -1,0 +1,101 @@
+---
+import { Image } from "astro:assets";
+
+import { type PassionCardData } from "./PassionCardData.ts";
+
+const { title, description, background, image, card } =
+  Astro.props as PassionCardData;
+---
+
+<div class="h-96 w-full">
+  <div class="grid size-full grid-cols-5 grid-rows-5 gap-4 p-4">
+    <div
+      class="passion-image-container col-span-4 col-start-2 row-span-3 row-start-1 rounded-2xl"
+    >
+      <div class="relative isolate size-full bg-black">
+        <Image
+          src={background}
+          alt="Background"
+          class="absolute inset-0 -z-10 object-cover"
+          loading="lazy"
+        />
+        <!--
+        <Image
+          src={image}
+          alt={title}
+          class="size-full object-cover"
+          loading="lazy"
+        /> -->
+      </div>
+    </div>
+    <div
+      class="z-10 col-span-4 col-start-1 row-span-3 row-start-3 overflow-hidden rounded-2xl bg-white"
+    >
+      <div class="flex size-full flex-col items-start justify-center gap-4 p-4">
+        <h3 class="text-2xl font-semibold text-slate-800 capitalize">
+          {title}
+        </h3>
+        <p class="text-base font-medium text-slate-700">{description}</p>
+      </div>
+    </div>
+    <div
+      class="col-span-1 col-start-5 row-span-2 row-start-4 rounded-2xl bg-green-500"
+    >
+      <div
+        class="flex size-full flex-col items-center justify-center gap-4 p-4"
+      >
+        <div class="h-1/2 w-full rounded-xl bg-white p-2 text-black">
+          {card.icon && <card.icon class="h-full w-full object-contain" />}
+        </div>
+        <div
+          class="h-1/2 w-full text-center leading-none font-medium text-white"
+        >
+          <span class="text-lg">{card.line1}</span>
+          <br />
+          <span class="text-sm">{card.line2}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import getClipPath, { type ScreenSpaceCoordinate } from "@utils/getClipPath";
+
+  const clipPathCornerNodes: ScreenSpaceCoordinate[] = [
+    [0, 0], //Top Left
+    [1, 0],
+    [1, 1],
+    [0.78, 1],
+    [0.78, 0.64],
+    [0, 0.64],
+  ];
+
+  function drawClipPathForAll() {
+    const containers = document.querySelectorAll<HTMLElement>(
+      ".passion-image-container",
+    );
+
+    containers.forEach((container) => {
+      const width = container.offsetWidth;
+      const height = container.offsetHeight;
+      const path = getClipPath({
+        containerWidth: width,
+        containerHeight: height,
+        coordinates: clipPathCornerNodes,
+        arcRadius: 16,
+      });
+      container.style.clipPath = `path('${path}')`;
+    });
+  }
+
+  drawClipPathForAll();
+
+  let timeout: any;
+  window.addEventListener("resize", () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      drawClipPathForAll();
+    }, 100);
+  });
+</script>

@@ -1,0 +1,29 @@
+---
+import PassionCard from "./Components/PassionCard.astro";
+import { PassionCards } from "./Components/PassionCardData.ts";
+---
+
+<section
+  id="passion"
+  class="flex flex-col items-center justify-center gap-20 bg-green-50 px-16 py-20"
+>
+  <div class="flex flex-col items-center justify-center gap-8">
+    <h2 class="text-5xl font-semibold tracking-wider capitalize">
+      Our Passion for Exceptional Service
+    </h2>
+    <p class="max-w-2xl text-center text-lg font-medium text-pretty">
+      Our approaches are based on a deep understanding of the solar energy
+      market, we are committed tp delivering innovative renewable energy
+      solutions.
+    </p>
+  </div>
+  <div class="flex w-full flex-row items-center justify-center gap-8">
+    {
+      PassionCards.map((card) => (
+        <div class="w-1/2">
+          <PassionCard {...card} />
+        </div>
+      ))
+    }
+  </div>
+</section>

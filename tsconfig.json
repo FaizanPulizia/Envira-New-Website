@@ -6,13 +6,11 @@
     // Path mapping for cleaner imports
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
       "@pages/*": ["src/pages/*"],
       "@assets/*": ["src/assets/*"],
       "@styles/*": ["src/styles/*"],
-      "@constants/*": ["src/constants/*"],
       "@utils/*": ["src/utils/*"]
     },
 

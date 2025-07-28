@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+
+import Image_1 from "@assets/Home/Impression/1.webp";
+import Image_2 from "@assets/Home/Impression/2.webp";
+---
+
+<div
+  class="grid h-[200svh] grid-cols-2 grid-rows-2 place-items-center gap-20 bg-gradient-to-b from-sky-300 to-green-50 px-16 py-20"
+>
+  <p class="text-left text-3xl font-medium text-pretty italic">
+    We aim to accelerate the change to a diversified, environmental conscious
+    energy system.
+  </p>
+  <div class="size-full overflow-hidden rounded-2xl">
+    <Image src={Image_1} alt="" class="size-full object-cover" loading="lazy" />
+  </div>
+  <div class="size-full overflow-hidden rounded-2xl">
+    <Image src={Image_2} alt="" class="size-full object-cover" loading="lazy" />
+  </div>
+
+  <p class="text-left text-3xl font-medium text-pretty italic">
+    Our mission is simple: to power the world sustainably. We strive to make
+    renewable energy accessible, reliable, and affordable for all.
+  </p>
+</div>

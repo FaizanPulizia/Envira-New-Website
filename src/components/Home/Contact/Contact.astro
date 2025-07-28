@@ -1,0 +1,32 @@
+---
+import ContactForm from "./Components/ContactForm.astro";
+---
+
+<section id="contact" class="space-y-20 bg-green-50 px-16 py-20">
+  <h2 class="text-center text-5xl font-semibold tracking-wider capitalize">
+    Book A Free Consultation Today
+  </h2>
+
+  <div class="grid grid-cols-2 gap-8">
+    <!-- Map Column -->
+    <div
+      class="size-full overflow-hidden rounded-2xl border border-green-500 shadow-2xl"
+    >
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15084.09634636602!2d72.85126782531736!3d19.062678571920536!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c8e63255a32f%3A0xb36949f4649e6f15!2sThe%20Capital!5e0!3m2!1sen!2sin!4v1753638721203!5m2!1sen!2sin"
+        class="h-full min-h-[400px] w-full object-cover"
+        loading="lazy"
+        allowfullscreen=""
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Google Maps location of Envira Energies"></iframe>
+    </div>
+
+    <!-- Form Column -->
+    <div class="size-full rounded-2xl border border-green-500 p-8 shadow-2xl">
+      <h3 class="text-3xl font-bold tracking-wider text-slate-800">
+        Contact Us
+      </h3>
+      <ContactForm />
+    </div>
+  </div>
+</section>

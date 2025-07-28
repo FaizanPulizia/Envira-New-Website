@@ -1,11 +1,12 @@
 ---
 import Logo from "@assets/logo_small.svg";
-import { navLinks } from "@constants/navLinks";
+
+import { navLinks } from "./navlinks.ts";
 ---
 
 <div
   id="navbar-container"
-  class="group fixed inset-x-0 top-0 z-999 grid place-content-center p-4"
+  class="group fixed inset-x-0 top-0 z-999 grid place-content-center px-4 pt-2 pb-2"
   data-is-hovered="false"
   onmouseenter='this.dataset.isHovered = "true"'
   onmouseleave='this.dataset.isHovered = "false"'
@@ -13,20 +14,20 @@ import { navLinks } from "@constants/navLinks";
   <header
     id="navbar"
     data-visibility="hidden"
-    class="relative rounded-full border border-green-600 bg-gradient-to-br from-green-500 to-teal-500 py-2 pr-8 pl-4 shadow-2xl shadow-green-800 transition-transform duration-500 ease-out group-hover:[transform:translateY(0%)]"
+    class="pointer-events-none relative rounded-full border border-green-600 bg-gradient-to-br from-green-500 to-teal-500 py-2 pr-8 pl-4 shadow-2xl shadow-green-800 transition-transform duration-500 ease-out group-hover:[transform:translateY(0%)]"
     style="--translateY:-250%; "
   >
-    <div class="flex size-full items-center justify-between gap-6 md:gap-16">
+    <div
+      class="pointer-events-auto flex size-full items-center justify-between gap-6 text-white md:gap-16"
+    >
       <a href="/">
-        <Logo class="size-10 text-white md:size-12" />
+        <Logo class="size-10 md:size-12" />
       </a>
-      <nav
-        class="flex items-center justify-center gap-2 will-change-contents md:gap-5"
-      >
+      <nav class="flex items-center justify-center gap-2 md:gap-4">
         {
           navLinks.map((navLink) => (
             <a
-              class="text-base font-light transition-all hover:font-normal hover:text-shadow-md md:text-xl"
+              class="relative rounded-full bg-white/5 text-xl transition-transform duration-500 before:absolute before:inset-x-0 before:bottom-0 before:mt-1 before:h-px before:origin-left before:scale-x-0 before:bg-slate-200 before:transition-transform before:duration-500 before:ease-in hover:-translate-y-1 hover:before:scale-x-100 hover:before:ease-out"
               href={navLink.href}
             >
               {navLink.name}
@@ -41,8 +42,6 @@ import { navLinks } from "@constants/navLinks";
 <script>
   const navbarContainer = document.getElementById("navbar-container")!;
   const navbar = document.getElementById("navbar")!;
-
-  navbar.classList.add("[transform:translateY(var(--translateY))]");
 
   let lastScrollY = window.scrollY;
 
@@ -67,17 +66,27 @@ import { navLinks } from "@constants/navLinks";
     if (currentScrollY < lastScrollY) {
       // Scrolling up - show navbar
       if (isNavbarHidden) {
-        navbar.dataset.visibility = "visible";
-        navbar.style.transform = "translateY(0)";
+        showNavbar();
       }
     } else {
       // Scrolling down - hide navbar
       if (!isNavbarHidden) {
-        navbar.dataset.visibility = "hidden";
-        navbar.style.removeProperty("transform");
+        hideNavbar();
       }
     }
 
     lastScrollY = currentScrollY;
   });
+
+  function showNavbar() {
+    navbar.dataset.visibility = "visible";
+    navbar.style.transform = "translateY(0)";
+    setTimeout(() => {
+      hideNavbar();
+    }, 1000);
+  }
+  function hideNavbar() {
+    navbar.dataset.visibility = "hidden";
+    navbar.style.removeProperty("transform");
+  }
 </script>

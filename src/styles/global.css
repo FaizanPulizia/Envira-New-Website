@@ -10,7 +10,16 @@
   * {
     @apply m-0 box-border p-0;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply font-urbanist;
+  }
+  h2 {
+    @apply cursor-default text-slate-900;
+  }
+  p {
+    @apply text-slate-700;
   }
 }

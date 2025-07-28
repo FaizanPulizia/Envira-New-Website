@@ -1,0 +1,28 @@
+---
+import { type ServicesCardData } from "./ServicesCardData.ts";
+
+const { description } = Astro.props as {
+  description: ServicesCardData["description"];
+};
+---
+
+<!-- Card Description -->
+<div
+  class="invisible mt-2 h-0 overflow-hidden rounded-2xl bg-white transition-[height_visibility] duration-750"
+  data-description-container
+  data-is-open="false"
+>
+  <p class="px-4 py-4 font-medium text-slate-700">
+    {description}
+  </p>
+</div>
+
+<style>
+  div[data-description-container] {
+    interpolate-size: allow-keywords;
+  }
+  div[data-is-open="true"] {
+    height: auto;
+    visibility: visible;
+  }
+</style>

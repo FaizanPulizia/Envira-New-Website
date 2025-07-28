@@ -1,0 +1,64 @@
+---
+import { Image } from "astro:assets";
+
+import BG_Image from "@assets/Home/HeroBackground.jpg";
+---
+
+<div
+  id="hero-video-container"
+  class="pointer-events-none absolute inset-0 -z-20 overflow-hidden rounded-lg"
+>
+  <div
+    class="relative isolate size-full before:absolute before:inset-0 before:z-10 before:bg-gradient-to-b before:from-black/40 before:to-transparent before:content-['']"
+  >
+    <Image
+      src={BG_Image}
+      alt=""
+      class="h-full w-full object-cover"
+      loading="lazy"
+    />
+
+    <script>
+      import getClipPath, {
+        type ScreenSpaceCoordinate,
+      } from "@utils/getClipPath";
+
+      const videoContainer = document.getElementById("hero-video-container")!;
+
+      const clipPathCornerNodes: ScreenSpaceCoordinate[] = [
+        [0, 1], // Bottom Left
+        [0, 0.1],
+        [0.25, 0.1],
+        [0.3, 0],
+        [0.7, 0],
+        [0.75, 0.1],
+        [1, 0.1],
+        [1, 0.9],
+        [0.7, 0.9],
+        [0.65, 1],
+      ];
+
+      function drawVideoContainerClip() {
+        const width = videoContainer.offsetWidth;
+        const height = videoContainer.offsetHeight;
+        const path = getClipPath({
+          containerWidth: width,
+          containerHeight: height,
+          coordinates: clipPathCornerNodes,
+          arcRadius: 20,
+        });
+        videoContainer.style.clipPath = `path('${path}')`;
+      }
+
+      drawVideoContainerClip();
+
+      let timeout: any;
+      window.addEventListener("resize", () => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          drawVideoContainerClip();
+        }, 100);
+      });
+    </script>
+  </div>
+</div>

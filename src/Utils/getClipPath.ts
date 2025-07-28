@@ -1,4 +1,4 @@
-export type ScreenSpaceCoordinate = [x: number, y: number, innerCorner: 0 | 1];
+export type ScreenSpaceCoordinate = [x: number, y: number];
 type Vector2D = [x: number, y: number];
 
 function getDirection(vector1: Vector2D, vector2: Vector2D): Vector2D {
@@ -97,19 +97,14 @@ export default function getClipPath({
       pathData += ` L ${startX.toFixed(2)} ${startY.toFixed(2)}`;
     }
 
-    const isInnerNode = coordinates[i]?.[2] === 1;
-    if (isInnerNode) {
-      const [scale, sweepFlag] = getConcaveRadiusMultiplier(
-        fromVector,
-        toVector,
-        3.5,
-      ); // maxScale can be tuned
-      const dynamicRadius = arcRadius * scale;
+    const [scale, sweepFlag] = getConcaveRadiusMultiplier(
+      fromVector,
+      toVector,
+      3.5,
+    ); // maxScale can be tuned
+    const dynamicRadius = arcRadius * scale;
 
-      pathData += ` A ${dynamicRadius} ${dynamicRadius} 0 0 ${sweepFlag} ${endX.toFixed(2)} ${endY.toFixed(2)}`;
-    } else {
-      pathData += ` A ${arcRadius} ${arcRadius} 0 0 1 ${endX.toFixed(2)} ${endY.toFixed(2)}`;
-    }
+    pathData += ` A ${dynamicRadius} ${dynamicRadius} 0 0 ${sweepFlag} ${endX.toFixed(2)} ${endY.toFixed(2)}`;
   }
 
   pathData += " Z";

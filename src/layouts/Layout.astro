@@ -1,6 +1,7 @@
 ---
 import "@styles/global.css";
-import Navbar from "@components/Navbar.astro";
+import Footer from "@components/Footer/Footer.astro";
+import Navbar from "@components/Navbar/Navbar.astro";
 ---
 
 <!doctype html>
@@ -15,5 +16,44 @@ import Navbar from "@components/Navbar.astro";
   <body>
     <Navbar />
     <slot />
+    <Footer />
+
+    <!-- Script to handle initial Navbar state -->
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const navbarContainer = document.getElementById("navbar-container");
+        const navbar = document.getElementById("navbar");
+
+        const onLeaveViewport = () => {
+          navbarContainer?.classList.remove("pointer-events-none");
+          navbar?.classList.add("[transform:translateY(var(--translateY))]");
+        };
+
+        const onEnterViewport = () => {
+          navbarContainer?.classList.add("pointer-events-none");
+          navbar?.classList.remove("[transform:translateY(var(--translateY))]");
+        };
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                onEnterViewport();
+              } else {
+                onLeaveViewport();
+              }
+            });
+          },
+          {
+            threshold: 0.6,
+          },
+        );
+
+        const homeElement = document.getElementById("home");
+        if (homeElement) {
+          observer.observe(homeElement);
+        }
+      });
+    </script>
   </body>
 </html>
