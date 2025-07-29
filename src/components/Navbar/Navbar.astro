@@ -6,7 +6,7 @@ import { navLinks } from "./navlinks.ts";
 
 <div
   id="navbar-container"
-  class="group fixed inset-x-0 top-0 z-999 grid place-content-stretch px-2 pt-2 pb-2 sm:place-content-center sm:px-4"
+  class="group !pointer-events-none fixed inset-x-0 top-0 z-999 grid place-content-stretch px-2 pt-2 pb-2 sm:place-content-center sm:px-4"
   data-is-hovered="false"
   data-aos="slide-down"
   data-aos-duration="750"
@@ -17,11 +17,11 @@ import { navLinks } from "./navlinks.ts";
   <header
     id="navbar"
     data-visibility="hidden"
-    class="pointer-events-none relative w-full rounded-full border border-green-600 bg-gradient-to-br from-green-500 to-teal-500 py-2 pr-3 pl-2 shadow-md shadow-green-800 transition-transform duration-500 ease-out group-hover:[transform:translateY(0%)] sm:w-fit sm:pr-8 sm:pl-4 md:shadow-2xl"
+    class="pointer-events-auto relative w-full rounded-full border border-green-600 bg-gradient-to-br from-green-500 to-teal-500 py-2 pr-3 pl-2 shadow-md shadow-green-800 transition-all duration-500 ease-out group-hover:[transform:translateY(0%)] hover:brightness-110 sm:w-fit sm:pr-8 sm:pl-4 md:shadow-2xl"
     style="--translateY:-250%;"
   >
     <nav
-      class="pointer-events-auto flex size-full items-center justify-between gap-3 text-white sm:gap-8 md:gap-16"
+      class="flex size-full items-center justify-between gap-3 text-white sm:gap-8 md:gap-16"
     >
       <a href="#home" class="" aria-label="Home">
         <Logo class="size-6 sm:size-8 md:size-12" />

@@ -12,7 +12,7 @@ const { title, description, image } = Astro.props as BenefitCardData;
 >
   <div class="relative h-32 w-full overflow-hidden sm:h-40 md:h-48">
     <Image
-      class="size-full object-cover transition-transform duration-500 will-change-transform group-hover:scale-105"
+      class="size-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-110 group-hover:saturate-110"
       src={image}
       alt={title}
       loading="lazy"

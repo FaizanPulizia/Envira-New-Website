@@ -26,12 +26,12 @@ import Navbar from "@components/Navbar/Navbar.astro";
         const navbar = document.getElementById("navbar");
 
         const onLeaveViewport = () => {
-          navbarContainer?.classList.remove("pointer-events-none");
+          navbarContainer?.classList.remove("!pointer-events-none");
           navbar?.classList.add("[transform:translateY(var(--translateY))]");
         };
 
         const onEnterViewport = () => {
-          navbarContainer?.classList.add("pointer-events-none");
+          navbarContainer?.classList.add("!pointer-events-none");
           navbar?.classList.remove("[transform:translateY(var(--translateY))]");
         };
 
