@@ -18,10 +18,17 @@
   body {
     @apply font-urbanist overflow-x-hidden;
   }
+  h1 {
+    @apply cursor-default;
+  }
   h2 {
     @apply cursor-default text-slate-900;
   }
   p {
     @apply text-slate-700;
+  }
+  section,
+  footer {
+    @apply mx-auto max-w-[100rem];
   }
 }

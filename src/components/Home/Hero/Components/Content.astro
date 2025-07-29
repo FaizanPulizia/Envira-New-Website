@@ -4,15 +4,19 @@
     data-aos="fade"
     data-aos-duration="1500"
     data-aos-easing="ease-out"
-    class="grid max-w-md place-content-center gap-2 rounded-2xl border border-yellow-300/50 bg-gradient-to-br from-white/30 to-black/20 p-2 backdrop-blur-xs md:max-w-lg md:gap-4 md:p-4 portrait:sm:max-w-lg portrait:sm:gap-4 portrait:sm:p-4"
+    class="group grid max-w-md place-content-center gap-2 rounded-2xl border border-yellow-300/50 bg-gradient-to-br from-white/30 to-black/20 p-2 backdrop-blur-xs md:max-w-lg md:gap-4 md:p-4 2xl:max-w-xl portrait:sm:max-w-lg portrait:sm:gap-4 portrait:sm:p-4"
   >
     <h1
-      class="text-center text-4xl leading-tight font-bold text-balance text-white sm:text-3xl md:text-6xl portrait:sm:text-6xl"
+      class="text-center text-4xl leading-tight font-bold text-balance text-white sm:text-3xl md:text-6xl 2xl:text-7xl portrait:sm:text-6xl"
     >
-      Harnessing the Power of <span class="text-green-500"> Nature </span>
+      Harnessing the Power of <span
+        class="text-green-500 transition-[filter] duration-200 ease-in-out group-hover:brightness-110"
+      >
+        Nature
+      </span>
     </h1>
     <h2
-      class="text-center text-sm leading-snug font-medium !text-green-400 italic sm:text-lg md:text-xl portrait:sm:text-xl"
+      class="text-center text-sm leading-snug font-medium !text-green-400 italic transition-[filter_color] duration-200 ease-in-out group-hover:text-green-500 group-hover:brightness-110 sm:text-lg md:text-xl 2xl:text-2xl portrait:sm:text-xl"
     >
       Save on Energy, Power Your Home
     </h2>
@@ -21,14 +25,76 @@
     >
       <button
         onclick="window.location.href='#passion'"
-        class="cursor-pointer rounded-full border border-green-500 bg-slate-50 px-2 py-1 text-sm font-light transition-colors ease-linear hover:border-green-600 hover:bg-slate-200 md:px-4 md:py-2 md:text-base md:font-medium portrait:sm:px-4 portrait:sm:py-2 portrait:sm:text-base portrait:sm:font-medium"
+        class="cursor-pointer rounded-full border border-green-500 bg-slate-50 px-2 py-1 text-sm font-light transition-colors ease-linear hover:border-green-600 hover:bg-slate-200 md:px-4 md:py-2 md:text-base md:font-medium 2xl:text-xl portrait:sm:px-4 portrait:sm:py-2 portrait:sm:text-base portrait:sm:font-medium"
         >Learn More</button
       >
       <button
         onclick="window.location.href='#contact'"
-        class="cursor-pointer rounded-full border border-green-500 bg-slate-50 px-2 py-1 text-sm font-light transition-colors ease-linear hover:border-green-600 hover:bg-slate-200 md:px-4 md:py-2 md:text-base md:font-medium portrait:sm:px-4 portrait:sm:py-2 portrait:sm:text-base portrait:sm:font-medium"
+        class="cursor-pointer rounded-full border border-green-500 bg-slate-50 px-2 py-1 text-sm font-light transition-colors ease-linear hover:border-green-600 hover:bg-slate-200 md:px-4 md:py-2 md:text-base md:font-medium 2xl:text-xl portrait:sm:px-4 portrait:sm:py-2 portrait:sm:text-base portrait:sm:font-medium"
         >Get a Quote</button
       >
     </div>
   </div>
 </div>
+
+<style>
+  @property --conic-angle {
+    syntax: "<angle>";
+    initial-value: -60deg;
+    inherits: false;
+  }
+  @keyframes rotate-conic {
+    from {
+      --conic-angle: 0deg;
+    }
+    to {
+      --conic-angle: 355deg;
+    }
+  }
+
+  #hero-text-container {
+    position: relative;
+  }
+  #hero-text-container::before {
+    --edge-mask:
+      linear-gradient(to top, transparent 99.5%, white 99.5%),
+      linear-gradient(to left, transparent 99.5%, white 99.5%),
+      linear-gradient(to bottom, transparent 99.5%, white 99.5%),
+      linear-gradient(to right, transparent 99.5%, white 99.5%),
+      linear-gradient(to top left, transparent 98.5%, white 98.5%),
+      linear-gradient(to top right, transparent 98.5%, white 98.5%),
+      linear-gradient(to bottom right, transparent 98.5%, white 98.5%),
+      linear-gradient(to bottom left, transparent 98.5%, white 98.5%);
+
+    content: "";
+
+    position: absolute;
+    inset: -2px;
+
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+
+    border-radius: inherit;
+
+    z-index: -10;
+
+    background: conic-gradient(
+      from var(--conic-angle),
+      transparent 0deg,
+      var(--color-yellow-300),
+      transparent 20deg,
+      transparent 180deg,
+      var(--color-yellow-300),
+      transparent 200deg
+    );
+
+    mask-image: var(--edge-mask);
+    -webkit-mask-image: var(--edge-mask);
+
+    animation: rotate-conic 4s linear infinite;
+  }
+
+  #hero-text-container:hover::before {
+    opacity: 1;
+  }
+</style>

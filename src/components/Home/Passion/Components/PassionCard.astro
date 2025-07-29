@@ -7,7 +7,7 @@ const { title, description, background, image, card } =
   Astro.props as PassionCardData;
 ---
 
-<div class="h-116 w-full">
+<div class="h-116 w-full min-[1500px]:h-148">
   <div class="grid size-full grid-cols-5 grid-rows-6 gap-4 p-4">
     <!-- Image Container -->
     <div
@@ -36,10 +36,14 @@ const { title, description, background, image, card } =
       <div
         class="flex size-fit flex-col items-start justify-start gap-2 rounded-2xl bg-white p-4 md:size-full md:justify-center md:gap-4"
       >
-        <h3 class="text-lg font-semibold text-slate-800 capitalize md:text-2xl">
+        <h3
+          class="text-lg font-semibold text-slate-800 capitalize md:text-xl lg:text-2xl 2xl:text-3xl"
+        >
           {title}
         </h3>
-        <p class="text-xs font-medium text-slate-700 md:text-base">
+        <p
+          class="text-xs font-medium text-slate-700 md:text-sm lg:text-base 2xl:text-xl"
+        >
           {description}
         </p>
       </div>
@@ -51,7 +55,7 @@ const { title, description, background, image, card } =
       class="col-span-1 col-start-5 row-span-2 row-start-5 hidden rounded-2xl bg-green-500 md:block"
     >
       <div
-        class="flex size-full flex-col items-center justify-center gap-4 p-4"
+        class="flex size-full flex-col items-center justify-center gap-4 p-1 lg:p-4"
       >
         <div class="h-1/2 w-full rounded-xl bg-white p-2 text-black">
           {card.icon && <card.icon class="h-full w-full object-contain" />}
@@ -59,9 +63,9 @@ const { title, description, background, image, card } =
         <div
           class="h-1/2 w-full text-center leading-none font-medium text-white"
         >
-          <span class="text-lg">{card.line1}</span>
+          <span class="text-lg md:text-base 2xl:text-xl">{card.line1}</span>
           <br />
-          <span class="text-sm">{card.line2}</span>
+          <span class="text-sm md:text-xs 2xl:text-base">{card.line2}</span>
         </div>
       </div>
     </div>
