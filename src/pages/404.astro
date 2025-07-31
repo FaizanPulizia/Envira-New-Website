@@ -1,18 +1,13 @@
 ---
+import CommonHead from "@components/CommonHead.astro";
 import "@styles/global.css";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Envira Energies</title>
-  </head>npm
+    <CommonHead />
+  </head>
   <body>
     <div
       class="grid h-svh place-content-center gap-4 bg-gradient-to-b from-sky-50 to-teal-100 px-8 py-10 text-center md:gap-8 md:px-16 md:py-20"

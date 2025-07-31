@@ -1,5 +1,6 @@
 ---
 import "@styles/global.css";
+import CommonHead from "@components/CommonHead.astro";
 import Footer from "@components/Footer/Footer.astro";
 import Navbar from "@components/Navbar/Navbar.astro";
 ---
@@ -7,14 +8,10 @@ import Navbar from "@components/Navbar/Navbar.astro";
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Envira Energies</title>
+    <CommonHead />
   </head>
   <body>
+    <!-- Developed by Kanishka Chandra - https://gitfolders.xyz -->
     <Navbar />
     <slot />
     <Footer />
@@ -58,12 +55,15 @@ import Navbar from "@components/Navbar/Navbar.astro";
     </script>
     <script>
       import AOS from "aos";
-      AOS.init({
-        disable: "mobile",
-        duration: 1000,
-        easing: "ease",
-        once: true,
-      });
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        AOS.init({
+          disable: "mobile",
+          duration: 1000,
+          easing: "ease",
+          once: true,
+        });
+      }
     </script>
+    <!-- Developed by Kanishka Chandra - https://gitfolders.xyz -->
   </body>
 </html>

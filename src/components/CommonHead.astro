@@ -1,0 +1,60 @@
+---
+const description =
+  "Envira Energies is a trusted solar energy provider in India, offering residential and commercial solar panel installation, energy savings analysis, and end-to-end solar solutions with government-approved quality and financing options.";
+
+const keywords =
+  "solar energy India, solar panel installation, renewable energy, green energy solutions, residential solar, commercial solar, net metering, solar savings, Envira Energies";
+
+const url = Astro.url.origin;
+
+const socialMediaTitle =
+  "Envira Energies | Trusted Solar Solutions for Homes & Businesses in India";
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+<meta name="author" content="Kanishka Chandra - https://gitfolders.xyz" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href={url} />
+
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={url} />
+<meta property="og:title" content={socialMediaTitle} />
+<meta property="og:site_name" content="Envira Energies" />
+<meta property="og:description" content={description} />
+<!--  TODO: fix -->
+<meta property="og:image" content={`${url}/social.png`} />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={url} />
+<meta name="twitter:title" content={socialMediaTitle} />
+<meta name="twitter:description" content={description} />
+<!--  TODO: fix -->
+<meta name="twitter:image" content={`${url}/social.png`} />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<title>Envira Energies</title>
+
+<!-- Developer attribution & schema -->
+<!-- Developed by Kanishka Chandra - https://gitfolders.xyz -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Envira Energies",
+    "url": "https://enviraenergies.com/",
+    "author": {
+      "@type": "Person",
+      "name": "Kanishka Chandra",
+      "url": "https://gitfolders.xyz"
+    }
+  }
+</script>
