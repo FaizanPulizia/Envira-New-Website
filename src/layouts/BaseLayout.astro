@@ -1,0 +1,20 @@
+---
+import "@styles/global.css";
+import CommonHead from "@components/CommonHead.astro";
+
+const { class: className = "" } = Astro.props as { class?: string };
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <CommonHead />
+  </head>
+  <body class={className}>
+    <!-- Developed by Kanishka Chandra - https://gitfolders.xyz -->
+
+    <slot />
+
+    <!-- Developed by Kanishka Chandra - https://gitfolders.xyz -->
+  </body>
+</html>

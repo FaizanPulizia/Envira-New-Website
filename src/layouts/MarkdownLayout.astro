@@ -1,0 +1,17 @@
+---
+import ArrowTR from "@assets/Icons/ArrowTR.svg";
+
+import BaseLayout from "./BaseLayout.astro";
+---
+
+<BaseLayout
+  class="prose mx-auto box-border w-full bg-neutral-100 p-6 text-base"
+>
+  <button
+    onclick="window.history.back()"
+    class="fixed top-5 left-4 cursor-pointer rounded-full bg-green-500 p-2 transition-transform hover:scale-105"
+  >
+    <ArrowTR class="size-6 -rotate-135 text-white" />
+  </button>
+  <slot />
+</BaseLayout>
